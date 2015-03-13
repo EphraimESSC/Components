@@ -1,0 +1,10 @@
+<!-- Start: SelectMenu template -->
+<!-- type="text/ng-template" id="SelectMenu" -->
+<div>
+  <select data-native-menu="true" class="control" id="{{controls.properties.id}}"
+          data-mini="{{ controls.properties.mini || false}}"
+          ng-model="controls.value">
+    <option ng-repeat="c in controls.properties.options.children||controls.children track by $index"
+         value="{{c.value||c.properties.label}}">{{c.text||c.properties.label}}</option>
+  </select>
+</div>
