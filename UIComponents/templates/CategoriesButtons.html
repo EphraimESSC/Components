@@ -1,11 +1,12 @@
 <!-- type="text/ng-template" id="CategoriesButtons" -->
+<!-- <pre class="code">{{categorieschildren | json}}</pre> -->
 <div class="" >
   <form>
     <fieldset data-role="controlgroup" data-type="horizontal">
       <span ng-repeat="h in categorieschildren track by $index">
-        <input type="checkbox" name="checkbox-h-{{h.data.id}}" ng-model="h.data.value"
-          id="checkbox-h-{{h.data.id}}" text="Checkbox" />
-        <label for="checkbox-h-{{h.data.id}}">{{h.data.name}}</label>
+        <input type="checkbox" name="checkbox-h-{{h.data.id || h.properties.id}}" ng-model="h.data.value"
+          id="checkbox-h-{{h.data.id || h.properties.id}}" text="Checkbox" />
+        <label for="checkbox-h-{{h.data.id || h.properties.id}}">{{h.data.name || h.properties.label}}</label>
       </span>
     </fieldset>
   </form>

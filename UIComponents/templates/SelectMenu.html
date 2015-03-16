@@ -1,6 +1,7 @@
 <!-- Start: SelectMenu template -->
 <!-- type="text/ng-template" id="SelectMenu" -->
-<div>
+<div class="ui-field-contain">
+  <label for="select-native-1">{{ controls.properties.label || "Choose Option:" }}</label>
   <select data-native-menu="true" class="control" id="{{controls.properties.id}}"
           data-mini="{{ controls.properties.mini || false}}"
           ng-model="controls.value">
