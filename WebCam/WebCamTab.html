@@ -1,0 +1,11 @@
+
+<video autoplay>Web Cam Video not rendered</video>
+
+<canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+
+<a href="javascript:;" class="ui-btn ui-mini ui-btn-inline" ng-click="ctrl.onSnapPhoto();">Take Picture</a>
+
+{{ctrl.model.values.imagesCollection.length}}
+<div ng-if="ctrl.model.values.imagesCollection.length > 0">
+  <img ng-repeat="a in ctrl.model.values.imagesCollection track by $index" height="100" src="{{a.src}}" />
+</div>

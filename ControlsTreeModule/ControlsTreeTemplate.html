@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-lg-12">
+
+    <div class="ui-grid-a" >
+      <div class="ui-block-a padding-lg">
+        <div class="col-xs-12" ng-controller="ControlsTreeController">
+          <h4>Draggable Tree</h4>
+
+          <div  ng-if="model.controlsServiceValues.selected.list.section === 'diagnose'"
+               class="controls-tree-wrapper" ui-tree="options" >
+            <ol  ui-tree-nodes ng-model="model.controlsServiceValues.selected.list.controls" >
+              <li ng-repeat="item in model.controlsServiceValues.selected.list.controls track by $index"
+                  ui-tree-node ng-include="'/Components/ControlsTreeModule/ControlsTree/items_renderer.html'"></li>
+            </ol>
+          </div>
+
+          <!-- <pre class="code">{{model.controlsServiceValues.selected.list.controls | json}}</pre> -->
+          <div  ng-if="model.controlsServiceValues.selected.list.section === 'categories'" 
+               class="controls-tree-wrapper" ui-tree=" options" >
+            <ol  ui-tree-nodes ng-model="model.controlsServiceValues.selected.list.controls" >
+              <li ng-repeat="item in model.controlsServiceValues.selected.list.controls track by $index"
+                  ui-tree-node ng-include="'/Components/ControlsTreeModule/ControlsTree/category_items_renderer.html'"></li>
+            </ol>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div ng-controller="NotificationsController as n"  id="notification"
+               class="text-info col-lg-12 margin-lg" ng-bind="n.model.notifications[0]"></div>
+
+          <div class="col-lg-6" ng-controller="CreateListController as c"
+               ng-include="'/Components/ControlsTreeModule/ListSection/CreateListTemplate.html'">
+          </div>
+
+          <div class="col-lg-6" ng-controller="CreateListItemController as createItemCtrl"
+               ng-include="'/Components/ControlsTreeModule/ListSection/CreateListItemTemplate.html'">
+          </div>
+        </div>
+
+      </div>
+      <div style="max-height: 600px; overflow-y: auto"
+           class="ui-block-b padding-vlg"
+           ng-controller="PreviewControlsController">
+        <!-- <pre class="code">{{serviceValues.selected.list.controls | json}}</pre> -->
+        <h4>Preview</h4> <a class="ui-btn ui-btn-inline ui-mini" ng-click="updatePreview()">Update Preview</a>
+
+        <div ng-repeat="l in serviceValues.selected.list.controls track by $index">
+          <r controls="l"></r>
+        </div>
+        <span class="controlgroup-block"
+              ng-repeat="categories in serviceValues.selected.list.controls[0].categorieschildren track by $index">
+          <categories categorieschildren="[categories]"
+             ></categories>
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-xs-6" ng-controller="PropertiesController"
+       ng-include="'/Components/ControlsTreeModule/ListSection/PropertiesTemplate.html'">
+  </div>
+
+  <div class="col-lg-6" ng-hide="true" ng-controller="ShowJSONTreeController as s">
+    <h3>Full tree</h3>
+    <pre class="code">{{ s.list | json }}</pre>
+  </div>
+</div>
