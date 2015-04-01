@@ -1,2 +1,20 @@
 <!-- type="text/ng-template" id="TabRoot" -->
-  <tabs controls="controls"></tabs>
+  
+  <div data-role="navbar">
+    <ul>
+      <li ng-repeat="tab in controls.children track by $index">
+        <a href="#{{tab.id || tab.properties.id}}" ng-click="$event.preventDefault()">
+          {{ tab.name || tab.properties.label || tab.listName }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div id="{{tab.id || tab.properties.id}}" ng-repeat="tab in controls.children track by $index">
+    <!--<div ng-if="tab.children[0].type === 'TabRoot'">-->
+      <r controls="tab" unique-property="{{tab.id}}" tab-hierarchy-headings="{{tab.tabHierarchyHeadings}}" parent="controls"></r>
+    <!--</div>
+    <div ng-if="tab.children[0].type !== 'TabRoot'">
+      <r ng-repeat="d in tab.children track by $index" controls="d"
+        unique-property="{{tab.id}}" tab-hierarchy-headings="{{tab.tabHierarchyHeadings}}"></r>
+    </div>-->
+  </div>
