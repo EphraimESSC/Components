@@ -19,23 +19,16 @@
 
 <legend>Lists</legend>
 
-<form>
-  <fieldset data-role="controlgroup" data-mini="true"
-            ng-repeat="l in c.model.serviceValues.lists track by $index"
-            ng-repeat-single-root='true'>
-
-    <label for="{{l.listName}}" ng-click="c.onSelectList($index)">
-      <input type="radio" name="lists" id="{{l.listName}}" value="{{l.listName}}"
-             ng-checked="l.listName === c.model.serviceValues.selected.list.listName">
-      {{l.listName}} : {{l.section}}
-      <a href="javascript:;" ng-click="c.onRemoveList($event, $index)" class="pull-right">
-        <span class="glyphicon glyphicon-remove"></span>
-      </a>
-    </label>
-  </fieldset>
-</form>
+<select ng-options="l.listName as (l.listName + ' : ' + l.section) 
+            for l in c.model.serviceValues.lists"
+        ng-change="c.onSelectList()"
+        ng-model="c.selectedListName" data-mini="true">
+  <option value="">-- Select List --</option>
+</select>
 
 <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.loadList()" >Load</a>
+<a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.onRemoveList($event)">Remove List</a>
 
 <div ng-include="'/Components/ControlsTreeModule/ImportExport/ImportExportTemplate.html'"
      ng-controller="ImportExportController as importExportController"></div>
+
