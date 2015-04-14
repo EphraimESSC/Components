@@ -1,13 +1,17 @@
-<!-- type="text/ng-template" id="CategoriesButtonsStems" -->
+<!-- type="text/ng-template" id="CategoriesButtonsStems" 
 
-<!-- <pre class="code">{{categorieschildren | json}}</pre> -->
+<pre class="code">{{categorieschildren | json}}</pre>
+
+IMP: This template is in index.html for the main app
+-->
+
 <div class="ui-field-contain controlgroup-block" ng-repeat="c in categorieschildren track by $index">
   
   <fieldset data-role="controlgroup" data-type="horizontal">
     <input type="checkbox" name="checkbox-bt-{{c.data.id || c.properties.id}}"
-      id="checkbox-bt-{{c.data.id || c.properties.id}}" ng-model="c.data.value">
-    <label for="checkbox-bt-{{c.data.id || c.properties.id}}">{{c.data.name || h.properties.label}}</label>
+      id="checkbox-bt-{{c.data.id || c.properties.id}}" ng-model="c.properties.value">
+    <label for="checkbox-bt-{{c.data.id || c.properties.id}}">{{c.data.name || c.properties.label}}</label>
   </fieldset>
 
-  <categories categorieschildren="c.categorieschildren" ng-show="c.data.value"></categories>
+  <categories categorieschildren="c.categorieschildren" ng-show="c.properties.value"></categories>
 </div>
