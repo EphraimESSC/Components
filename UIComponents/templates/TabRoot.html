@@ -4,7 +4,7 @@
     <ul>
       <li ng-repeat="tab in controls.children track by $index">
         <a href="#{{tab.id || tab.properties.id}}" ng-click="$event.preventDefault()">
-          {{ tab.name || tab.properties.label || tab.listName || tab.tabName }}
+          {{ tab.name || tab.properties.label || tab.listName }}
         </a>
       </li>
     </ul>
