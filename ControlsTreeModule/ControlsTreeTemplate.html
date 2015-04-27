@@ -30,11 +30,11 @@
           <div ng-controller="NotificationsController as n"  id="notification"
                class="text-info col-lg-12 margin-lg" ng-bind="n.model.notifications[0]"></div>
 
-          <div class="col-lg-6" ng-controller="CreateListController as c"
+          <div class="col-lg-6" 
                ng-include="'/Components/ControlsTreeModule/ListSection/CreateListTemplate.html'">
           </div>
 
-          <div class="col-lg-6" ng-controller="CreateListItemController as createItemCtrl"
+          <div class="col-lg-6" 
                ng-include="'/Components/ControlsTreeModule/ListSection/CreateListItemTemplate.html'">
           </div>
         </div>
