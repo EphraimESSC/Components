@@ -3,6 +3,6 @@
 <fieldset data-role="controlgroup" data-type="{{controls.properties.orientation}}">
   <div>{{controls.properties.legend}}</div>
   
-  <radiogroup ng-repeat="d in controls.children track by $index"
-    controls="d" parent="controls" groupname="controls.groupname" parent="controls"></radiogroup>
+  <radiobutton ng-repeat="d in controls.children track by $index"
+    controls="d" parent="controls" groupname="controls.groupname" parent="controls"></radiobutton>
 </fieldset>
