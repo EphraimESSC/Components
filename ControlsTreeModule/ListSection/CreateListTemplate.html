@@ -1,34 +1,38 @@
-<input id="listNameInput" type="text"
-       ng-model="c.model.listName" placeholder="List Name ..."
-        / >
+<div ng-controller="CreateListController as c">
+  <input id="listNameInput" type="text"
+         ng-model="c.model.listName" placeholder="List Name ..."
+          / >
 
-<select ng-model="c.model.section" ng-change="c.onChangeSection()" data-mini="true">
-  <option value=""> -- Select section -- </option>
-  <option value="diagnose">Diagnose Section</option>
-  <option value="categories">Categories Section</option>
-  <!-- <option value="personalData">Personal Data Section</option> -->
-</select>
+  <select ng-model="c.model.listSectionServiceValues.selectedSection"
+      ng-options="a.section as a.sectionName for a in c.model.listSectionServiceValues.sectionsDetails"
+      ng-change="c.onChangeSection()" data-mini="true">
+    <option value=""> -- Select section -- </option>
 
-<a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.createList()"
-   ng-hide="c.model.listNameEdit">Create New List</a>
+  </select>
+    <!-- <option value="diagnose">Diagnose Section</option>
+    <option value="categories">Categories Section</option> -->
+    <!-- <option value="personalData">Personal Data Section</option> -->
+  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.createList()"
+     ng-hide="c.model.listNameEdit">Create New List</a>
 
-<a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.saveListName()"
-   ng-show="c.model.listNameEdit">Save List Name</a>
-<a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.cancelSaveListName()"
-   ng-show="c.model.listNameEdit">Cancel</a>
+  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.saveListName()"
+     ng-show="c.model.listNameEdit">Save List Name</a>
+  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.cancelSaveListName()"
+     ng-show="c.model.listNameEdit">Cancel</a>
 
-<legend>Lists</legend>
+  <legend>Lists</legend>
 
-<select ng-options="l.listName as (l.listName + ' : ' + l.section) 
-            for l in c.model.serviceValues.lists"
-        ng-change="c.onSelectList()"
-        ng-model="c.selectedListName" data-mini="true">
-  <option value="">-- Select List --</option>
-</select>
+  <select ng-options="l.listName as (l.listName + ' : ' + l.section) 
+              for l in c.model.controlsServiceValues.lists"
+          ng-change="c.onSelectList()"
+          ng-model="c.selectedListName" data-mini="true">
+    <option value="">-- Select List --</option>
+  </select>
 
-<a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.loadList()" >Load</a>
-<a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.onRemoveList($event)">Remove List</a>
+  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.loadList()" >Load</a>
+  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.onRemoveList($event)">Remove List</a>
 
-<div ng-include="'/Components/ControlsTreeModule/ImportExport/ImportExportTemplate.html'"
-     ng-controller="ImportExportController as importExportController"></div>
+  <div ng-include="'/Components/ControlsTreeModule/ImportExport/ImportExportTemplate.html'"
+       ng-controller="ImportExportController as importExportController"></div>
 
+</div>
