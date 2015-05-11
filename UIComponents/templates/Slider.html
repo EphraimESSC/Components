@@ -12,7 +12,7 @@
            
            min    = "{{ controls.properties.min   || 0    }}"
            max    = "{{ controls.properties.max   || 200  }}"
-           value  = "{{ controls.properties.value || 0    }}"
+           value  = "{{ controls.value || controls.properties.value || 0    }}"
            step   = "{{ controls.properties.step  || 1    }}"
            
            data-default-value="0"

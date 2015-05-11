@@ -1,0 +1,15 @@
+<div >
+  <video autoplay>Web Cam Video not rendered</video>
+
+  <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+
+  <a href="javascript:;" class="ui-btn ui-mini ui-btn-inline" ng-click="onSnapPhoto();">Take Picture</a>
+
+  {{ctrl.model.values.imagesCollection.length}}
+  <div ng-if="model.serviceValues.imagesCollection.length > 0">
+    <span ng-repeat="a in model.serviceValues.imagesCollection track by $index" style="margin-right: 8px">
+      <img height="100" src="{{a.src}}" />
+      <a href="javascript:;" class="glyphicon glyphicon-remove ui-link" ng-click="onDeletePhoto($index)"></a>
+    </span>
+  </div>
+</div>
