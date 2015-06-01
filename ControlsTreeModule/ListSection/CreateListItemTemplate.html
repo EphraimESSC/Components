@@ -1,34 +1,14 @@
 <div ng-controller="CreateListItemController as createItemCtrl">
   <input id="listItemNameInput" type="text" ng-model="createItemCtrl.model.itemLabel"
          placeholder="New List Item ..."  / >
-
-  <div ng-hide="!createItemCtrl.model.listSectionServiceValues.selectedSection">
+  <div ng-show="createItemCtrl.model.listSectionServiceValues.selectedSection 
+  && createItemCtrl.model.listSectionServiceValues.controlsOptions[createItemCtrl.model.listSectionServiceValues.selectedSection] !== undefined">
     <select data-mini="true" ng-model="createItemCtrl.model.itemType" data-native-menu="true"
              ng-click="$event.preventDefault();" 
              ng-options="s.value as s.displayName for s in 
              createItemCtrl.model.listSectionServiceValues.controlsOptions[createItemCtrl.model.listSectionServiceValues.selectedSection]"
              ng-click-preventdefault>
       <option value="">-- Select Control --</option>
-      <!--<option value="CategoriesButtons">CategoriesButtons</option>
-      <option value="CategoriesButtonsStems">CategoriesButtonsStems</option> -->
-      
-      <!-- <option value="SelectMenu">SelectMenu</option>
-      <option value="Option">Option</option>
-      <option value="Tabs">Tabs</option>
-      <option value="TabRoot">TabRoot</option>
-      
-      <option value="Checkbox">Checkbox</option>
-      <option value="CheckboxGroup">Checkbox Group</option>
-      <option value="RadioButton">Radio Button</option>
-      <option value="RadioGroup">Radio Group</option>
-      <option value="Div">Div</option>
-      <option value="Slider">Slider</option>
-      <option value="Content">Content</option>
-      <option value="ToggleSwitch">Toggle Switch</option>
-      <option value="TextInput">Text Input</option>
-      <option value="Collapsible">Collapsible</option>
-      <option value="CollapsibleSet">CollapsibleSet</option>
-      <option value="Text">Text</option> -->
     </select>
   </div>
   <div>

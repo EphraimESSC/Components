@@ -1,4 +1,4 @@
-<div ng-controller="CreateListController as c">
+<div ng-controller="CreateListController as c" enhance-ui>
   <input id="listNameInput" type="text"
          ng-model="c.model.listName" placeholder="List Name ..."
           / >
@@ -12,12 +12,12 @@
     <!-- <option value="diagnose">Diagnose Section</option>
     <option value="categories">Categories Section</option> -->
     <!-- <option value="personalData">Personal Data Section</option> -->
-  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.createList()"
+  <a href="javascript:;" class="ui-btn ui-btn-inline ui-mini" ng-click="c.createList()"
      ng-hide="c.model.listNameEdit">Create New List</a>
 
-  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.saveListName()"
+  <a href="javascript:;" class="ui-btn ui-btn-inline ui-mini" ng-click="c.saveListName()"
      ng-show="c.model.listNameEdit">Save List Name</a>
-  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.cancelSaveListName()"
+  <a href="javascript:;" class="ui-btn ui-btn-inline ui-mini" ng-click="c.cancelSaveListName()"
      ng-show="c.model.listNameEdit">Cancel</a>
 
   <legend>Lists</legend>
@@ -29,8 +29,8 @@
     <option value="">-- Select List --</option>
   </select>
 
-  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.loadList()" >Load</a>
-  <a href="#" class="ui-btn ui-btn-inline ui-mini" ng-click="c.onRemoveList($event)">Remove List</a>
+  <a href="javascript:;" class="ui-btn ui-btn-inline ui-mini" ng-click="c.loadList()" >Load</a>
+  <a href="javascript:;" class="ui-btn ui-btn-inline ui-mini" ng-click="c.onRemoveList($event)">Remove List</a>
 
   <div ng-include="'/Components/ControlsTreeModule/ImportExport/ImportExportTemplate.html'"
        ng-controller="ImportExportController as importExportController"></div>
