@@ -1,0 +1,15 @@
+<div>
+	<h5>Right Categories Panel</h5>
+	<span>
+		{{panelsData[type].controlLabel}}
+		{{panelsData[type].controlLabel ? " : " : "" }}
+		{{panelsData[type].valueLabel}}
+	</span>
+	<div id="categoriesSection">
+		<categories categorieschildren="panelsData[type].categoriesInfo"
+	               template-name="CategoriesButtonsStems"></categories>
+	</div>
+
+	<a href="#panel-close" ng-click="$event.preventDefault()" data-rel="close" id="panelCloseButton"
+	 class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left ui-btn-inline ui-mini">Close panel</a>
+</div>

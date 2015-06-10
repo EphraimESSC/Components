@@ -1,13 +1,18 @@
 <div class="ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content"
 	ng-class="{ 'ui-collapsible-collapsed': !showContent}">
+
 	<h4 class="ui-collapsible-heading" ng-class=" { 'ui-collapsible-heading-collapsed': !showContent } ">
+
 		<a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-left ui-btn-inherit"
 			ng-class="{ 'ui-icon-plus': !showContent, 'ui-icon-minus': showContent }">
 			{{title}}
 		</a>
+		
 	</h4>
+
 	<div class="ui-collapsible-content ui-body-inherit"
 		ng-class="{ 'ui-collapsible-content-collapsed': !showContent }"
 		ng-transclude ng-show="showContent">
 	</div>
+
 </div>
