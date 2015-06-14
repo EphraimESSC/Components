@@ -1,0 +1,16 @@
+<div class="ui-radio ui-mini">
+
+	<label ng-transclude
+		class="ui-btn ui-corner-all ui-btn-inherit"
+		ng-class="{
+			'ui-radio-off'	: !($parent.$parent.controlDetail===value),
+		 	'ui-btn-active'	: ($parent.$parent.controlDetail===value),
+		 	'ui-radio-on'	: ($parent.$parent.controlDetail===value)
+		 }" 
+		 ng-click="onRadioButtonClick()"
+		 >
+	</label>
+	<input type="radio" ng-model="$parent.$parent.controlDetail" class="hide" value="{{value}}"
+	 />
+
+</div>

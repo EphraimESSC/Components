@@ -1,7 +1,9 @@
-<div class="ui-checkbox ui-mini">
-	<input type="checkbox" id="id" ng-model="model" ng-checked="checked" />
+<div class="ui-checkbox ui-mini" ng-class="{ 'ui-disabled': isDisabled }">
 	<label ng-transclude for="id"
 		class="ui-btn ui-corner-all ui-btn-inherit"
-		ng-class="{ 'ui-checkbox-off': !checked, 'ui-btn-active': checked, 'ui-checkbox-on': checked  }" ></label>
+		ng-class="{ 'ui-checkbox-off': !model, 'ui-btn-active': model, 'ui-checkbox-on': model  }" 
+		value="{{value}}"></label>
+	<input type="checkbox" id="id" class="hide"
+			ng-model="model" onclick="console.log('clicked here');"
+			ng-disabled="isDisabled" />
 </div>
-
